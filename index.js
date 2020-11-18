@@ -1,14 +1,14 @@
 const express = require("express");
-const app = express();
+const index = express();
 var cors = require('cors');
 
-app.use(
+index.use(
     cors({
              credentials: true,
              origin: true
          })
 );
-app.options('*', cors());
+index.options('*', cors());
 
 const users = [
     {
@@ -123,50 +123,50 @@ function filterSnippetTags(database, keyword) {
 //////////////////////////////////////////// API Endpoints ////////////////////////////////////
 
 // Welcome Page
-app.get("/", (req, res) => {
+index.get("/", (req, res) => {
     res.send("API ACTIVE")
 });
 
 // Get List of Users
-app.get("/users", (req, res) => {
+index.get("/users", (req, res) => {
     res.send(users)
 });
 
 // Get List of snippets
-app.get("/snippets", (req, res) => {
+index.get("/snippets", (req, res) => {
     res.send(snippets)
 });
 
 // Get User by ID
-app.get("/users/:uid", (req, res) => {
+index.get("/users/:uid", (req, res) => {
     const userId = req.params["uid"];
     const user = users.find(user => user.id === userId);
     res.send(user)
 });
 
 // Get Snippet by ID
-app.get("/snippets/:sid", (req, res) => {
+index.get("/snippets/:sid", (req, res) => {
     const snippetId = req.params["sid"];
     const snippet = snippets.find(snippet => snippet.id === snippetId);
     res.send(snippet)
 });
 
 // Get a Users Favorites
-app.get("/users/:uid/favorites", (req, res) => {
+index.get("/users/:uid/favorites", (req, res) => {
     const userId = req.params["uid"];
     const user = users.find(user => user.id === userId);
     res.send(user.favorites)
 });
 
 // Get a Snippets Tags
-app.get("/snippets/:sid/tags", (req, res) => {
+index.get("/snippets/:sid/tags", (req, res) => {
     const snippetId = req.params["sid"];
     const snippet = snippets.find(snippet => snippet.id === snippetId);
     res.send(snippet.tags)
 });
 
 // Search User Favorites
-app.get("/search/users/:searchKeywords", (req, res) => {
+index.get("/search/users/:searchKeywords", (req, res) => {
     const keyWordString = req.params["searchKeywords"];
     // console.log(keyWordString);
     const keyWordList = keyWordString.split("+");
@@ -186,7 +186,7 @@ app.get("/search/users/:searchKeywords", (req, res) => {
 
 
 // Search Snippet Tags
-app.get("/search/snippets/:searchKeywords", (req, res) => {
+index.get("/search/snippets/:searchKeywords", (req, res) => {
     const keyWordString = req.params["searchKeywords"];
     // console.log(keyWordString);
     const keyWordList = keyWordString.split("+");
@@ -206,7 +206,7 @@ app.get("/search/snippets/:searchKeywords", (req, res) => {
 
 
 
-// app.listen(3000);
+// index.listen(3000);
 
-app.listen(process.env.PORT || 3000,
-           () => console.log("Server is running..."));
+index.listen(process.env.PORT || 3000,
+             () => console.log("Server is running..."));
