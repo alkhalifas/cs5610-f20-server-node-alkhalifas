@@ -1,5 +1,14 @@
 const express = require("express");
 const app = express();
+var cors = require('cors');
+
+app.use(
+    cors({
+             credentials: true,
+             origin: true
+         })
+);
+app.options('*', cors());
 
 const users = [
     {
@@ -115,7 +124,7 @@ function filterSnippetTags(database, keyword) {
 
 // Welcome Page
 app.get("/", (req, res) => {
-    res.send(200)
+    res.send("API ACTIVE")
 });
 
 // Get List of Users
@@ -197,4 +206,7 @@ app.get("/search/snippets/:searchKeywords", (req, res) => {
 
 
 
-app.listen(3000);
+// app.listen(3000);
+
+app.listen(process.env.PORT || 3000,
+           () => console.log("Server is running..."));
