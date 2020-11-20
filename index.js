@@ -94,7 +94,6 @@ const snippets = [
     },
 ];
 
-
 //////////////////////////////////////////// Functions ////////////////////////////////////////
 
 function filterUserFavorites(database, keyword) {
@@ -168,45 +167,37 @@ index.get("/snippets/:sid/tags", (req, res) => {
 // Search User Favorites
 index.get("/search/users/:searchKeywords", (req, res) => {
     const keyWordString = req.params["searchKeywords"];
-    // console.log(keyWordString);
     const keyWordList = keyWordString.split("+");
-    // console.log(keyWordList);
     let uResults = [];
-
     for (let i = 0; i < keyWordList.length; i++) {
-        // console.log(keyWordList[i])
         let tmp = filterUserFavorites(users, keyWordList[i]);
         tmp.forEach(function (user) {
-            uResults.push(user)
+            if (!uResults.includes(user)) {
+                uResults.push(user)
+            }
         })
-        // console.log(uResults[0][0]["favorites"])
     }
     res.send(uResults)
 });
-
 
 // Search Snippet Tags
 index.get("/search/snippets/:searchKeywords", (req, res) => {
     const keyWordString = req.params["searchKeywords"];
-    // console.log(keyWordString);
     const keyWordList = keyWordString.split("+");
-    // console.log(keyWordList);
     let uResults = [];
-
     for (let i = 0; i < keyWordList.length; i++) {
-        // console.log(keyWordList[i])
         let tmp = filterSnippetTags(snippets, keyWordList[i]);
         tmp.forEach(function (snippet) {
-            uResults.push(snippet)
+            if (!uResults.includes(snippet)) {
+                uResults.push(snippet)
+            }
         })
-        // console.log(uResults[0][0]["favorites"])
     }
     res.send(uResults)
 });
 
-
-
 // index.listen(3000);
 
-index.listen(process.env.PORT || 3000,
-             () => console.log("Server is running..."));
+index.listen(process.env.PORT || 3000, () =>
+    console.log("Server is running...")
+);

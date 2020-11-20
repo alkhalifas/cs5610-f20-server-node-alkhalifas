@@ -81,6 +81,7 @@ app.get("/search/:searchKeywords", (req, res) => {
         // console.log(keyWordList[i])
         let tmp = filterWithLists(users, keyWordList[i])
         tmp.forEach(function (user) {
+
             uResults.push(user)
         })
         // console.log(uResults[0][0]["favorites"])
