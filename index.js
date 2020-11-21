@@ -119,52 +119,35 @@ function filterSnippetTags(database, keyword) {
 
 // console.log(filterSnippetTags(snippets, "azure"))
 
-//////////////////////////////////////////// API Endpoints ////////////////////////////////////
+/////////////////////////////////////////// API Endpoints ////////////////////////////////////////
 
-// Welcome Page
+// Welcome Page:
 index.get("/", (req, res) => {
     res.send("API ACTIVE")
 });
 
-// Get List of Users
+//////////////////// User Endpoints ///////////////////
+
+// Get List of Users:
 index.get("/users", (req, res) => {
     res.send(users)
 });
 
-// Get List of snippets
-index.get("/snippets", (req, res) => {
-    res.send(snippets)
-});
-
-// Get User by ID
+// Get User by ID:
 index.get("/users/:uid", (req, res) => {
     const userId = req.params["uid"];
     const user = users.find(user => user.id === userId);
     res.send(user)
 });
 
-// Get Snippet by ID
-index.get("/snippets/:sid", (req, res) => {
-    const snippetId = req.params["sid"];
-    const snippet = snippets.find(snippet => snippet.id === snippetId);
-    res.send(snippet)
-});
-
-// Get a Users Favorites
+// Get a Users Favorites:
 index.get("/users/:uid/favorites", (req, res) => {
     const userId = req.params["uid"];
     const user = users.find(user => user.id === userId);
     res.send(user.favorites)
 });
 
-// Get a Snippets Tags
-index.get("/snippets/:sid/tags", (req, res) => {
-    const snippetId = req.params["sid"];
-    const snippet = snippets.find(snippet => snippet.id === snippetId);
-    res.send(snippet.tags)
-});
-
-// Search User Favorites
+// Search User Favorites:
 index.get("/search/users/:searchKeywords", (req, res) => {
     const keyWordString = req.params["searchKeywords"];
     const keyWordList = keyWordString.split("+");
@@ -178,6 +161,34 @@ index.get("/search/users/:searchKeywords", (req, res) => {
         })
     }
     res.send(uResults)
+});
+
+//////////////////// Snippet Endpoints ///////////////////
+
+// Get List of snippets:
+index.get("/snippets", (req, res) => {
+    res.send(snippets)
+});
+
+// Get Snippet by ID:
+index.get("/snippets/:sid", (req, res) => {
+    const snippetId = req.params["sid"];
+    const snippet = snippets.find(snippet => snippet.id === snippetId);
+    res.send(snippet)
+});
+
+// Get Snippet by gistid:
+index.get("/snippets/gistId/:gid", (req, res) => {
+    const gid = req.params["gid"];
+    const snippet = snippets.find(snippet => snippet.gistId === gid);
+    res.send(snippet)
+});
+
+// Get a Snippets Tags:
+index.get("/snippets/:sid/tags", (req, res) => {
+    const snippetId = req.params["sid"];
+    const snippet = snippets.find(snippet => snippet.id === snippetId);
+    res.send(snippet.tags)
 });
 
 // Search Snippet Tags
@@ -197,7 +208,6 @@ index.get("/search/snippets/:searchKeywords", (req, res) => {
 });
 
 // index.listen(3000);
-
 index.listen(process.env.PORT || 3000, () =>
     console.log("Server is running...")
 );
