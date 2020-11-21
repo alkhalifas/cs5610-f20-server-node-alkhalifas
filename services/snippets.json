@@ -1,0 +1,44 @@
+[
+    {
+        "id" : "1",
+        "gistId" : "123",
+        "creatorId" : "alkhalifas",
+        "dateCreated" : "10/22/2020",
+        "lastModified": "10/22/2020",
+        "title" : "Some title",
+        "description" : "Some desc",
+        "codeText" : "Code Test here",
+        "tags" : ["Python", "R", "SQL"],
+        "shareableURL": "some URL",
+        "publicPost": false,
+        "recommended": false
+    },
+    {
+        "id" : "2",
+        "gistId" : "234",
+        "creatorId" : "alkhalifas",
+        "dateCreated" : "10/22/2020",
+        "lastModified": "10/22/2020",
+        "title" : "Some title",
+        "description" : "Some desc",
+        "codeText" : "Code Test here",
+        "tags" : ["JS", "Microsoft", "Login"],
+        "shareableURL": "some URL",
+        "publicPost": false,
+        "recommended": false
+    },
+    {
+        "id" : "3",
+        "gistId" : "345",
+        "creatorId" : "alkhalifas",
+        "dateCreated" : "10/22/2020",
+        "lastModified": "10/22/2020",
+        "title" : "Some title",
+        "description" : "Some desc",
+        "codeText" : "Code Test here",
+        "tags" : ["Python", "Login", "Azure"],
+        "shareableURL": "some URL",
+        "publicPost": true,
+        "recommended": false
+    }
+]
