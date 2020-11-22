@@ -41,6 +41,31 @@ const updateSnippet = (sid, newSnippet) => {
     snippets = snippets.map(snippet => snippet.id === sid ? newSnippet : snippet)
 }
 
+function filterSnippetTags(database, keyword) {
+    const results = [];
+    database.forEach(function (snippet) {
+        if (snippet.tags.map(v => v.toLowerCase()).includes(keyword.toLowerCase())) {
+            results.push(snippet)
+        }
+    });
+    return results;
+}
+
+const searchSnippetForTags = (query) => {
+    // const keyWordString = req.params["query"];
+    const keyWordList = query.split("+");
+    let uResults = [];
+    for (let i = 0; i < keyWordList.length; i++) {
+        let tmp = filterSnippetTags(snippets, keyWordList[i]);
+        tmp.forEach(function (snippet) {
+            if (!uResults.includes(snippet)) {
+                uResults.push(snippet)
+            }
+        })
+    }
+    return uResults;
+}
+
 module.exports = {
     findAllSnippets: findAllSnippets,
     findSnippetByGistId: findSnippetByGistId,
@@ -48,5 +73,6 @@ module.exports = {
     findSnippetsTags: findSnippetsTags,
     deleteSnippetById: deleteSnippetById,
     updateSnippet: updateSnippet,
-    createSnippet: createSnippet
-};
+    createSnippet: createSnippet,
+    searchSnippetForTags: searchSnippetForTags,
+}
