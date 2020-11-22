@@ -19,7 +19,7 @@ const deleteSnippetById = (sid) =>
 
 const createSnippet = (cid) => {
     const newSnippet = {
-        id: Math.floor(100000000000000000 + Math.random() * 900000000000000000),
+        id: Math.floor(100000000000000000 + Math.random() * 900000000000000000) + "",
         // id: Math.random().toString(36).substr(2, 25),
         creatorId: cid,
         dateCreated : new Date().toLocaleString(),
@@ -37,9 +37,26 @@ const createSnippet = (cid) => {
 };
 
 const updateSnippet = (sid, newSnippet) => {
-    newSnippet.lastModified = new Date().toLocaleString()
-    snippets = snippets.map(snippet => snippet.id === sid ? newSnippet : snippet)
+    // newSnippet.lastModified = new Date().toLocaleString();
+    // console.log("Body: ", newSnippet);
+    // console.log(snippets.map(snippet => snippet.id === sid))
+    // snippets = snippets.map(snippet => snippet.id === sid ? newSnippet: snippet)
+
+    oldSnippet = snippets.find(snippet => snippet.id === sid)
+    oldSnippet.gistId = newSnippet.gistId
+    oldSnippet.title = newSnippet.title
+    oldSnippet.description = newSnippet.description
+    oldSnippet.codeText = newSnippet.codeText
+    oldSnippet.tags = newSnippet.tags
+    oldSnippet.shareableURL = newSnippet.shareableURL
+    oldSnippet.publicPost = newSnippet.publicPost
+    oldSnippet.recommended = newSnippet.recommended
+
+    console.log("Old: ", oldSnippet)
 }
+
+
+
 
 function filterSnippetTags(database, keyword) {
     const results = [];

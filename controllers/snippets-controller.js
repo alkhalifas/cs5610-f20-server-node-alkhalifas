@@ -16,8 +16,8 @@ module.exports = (app) => {
     };
 
     const updateSnippet = (req, res) => {
-        console.log("SID: ", req.params['sid']);
-        console.log("Body: ", req.body);
+        // console.log("SID: ", req.params['sid']);
+        // console.log("Body: ", req.body);
         snippetsService.updateSnippet(req.params['sid'], req.body);
         res.send(200)
     };
