@@ -23,4 +23,8 @@ app.use(bodyParser.json())
 
 require("./controllers/snippets-controller")(app)
 
-app.listen(3000)
+// app.listen(3000)
+
+index.listen(process.env.PORT || 3000, () =>
+    console.log("Server is running...")
+);
