@@ -1,4 +1,3 @@
-
 let snippets = require("./snippets");
 
 const findAllSnippets = () =>
@@ -32,31 +31,23 @@ const createSnippet = (cid) => {
         publicPost: false,
         recommended: false};
     snippets.push(newSnippet);
-    console.log(newSnippet)
+    console.log("Snippet Created")
     return newSnippet
 };
 
 const updateSnippet = (sid, newSnippet) => {
-    // newSnippet.lastModified = new Date().toLocaleString();
-    // console.log("Body: ", newSnippet);
-    // console.log(snippets.map(snippet => snippet.id === sid))
-    // snippets = snippets.map(snippet => snippet.id === sid ? newSnippet: snippet)
-
-    oldSnippet = snippets.find(snippet => snippet.id === sid)
-    oldSnippet.gistId = newSnippet.gistId
-    oldSnippet.title = newSnippet.title
-    oldSnippet.description = newSnippet.description
-    oldSnippet.codeText = newSnippet.codeText
-    oldSnippet.tags = newSnippet.tags
-    oldSnippet.shareableURL = newSnippet.shareableURL
-    oldSnippet.publicPost = newSnippet.publicPost
-    oldSnippet.recommended = newSnippet.recommended
-
-    console.log("Old: ", oldSnippet)
-}
-
-
-
+    oldSnippet = snippets.find(snippet => snippet.id === sid);
+    oldSnippet.gistId = newSnippet.gistId;
+    oldSnippet.lastModified = new Date().toLocaleString();
+    oldSnippet.title = newSnippet.title;
+    oldSnippet.description = newSnippet.description;
+    oldSnippet.codeText = newSnippet.codeText;
+    oldSnippet.tags = newSnippet.tags;
+    oldSnippet.shareableURL = newSnippet.shareableURL;
+    oldSnippet.publicPost = newSnippet.publicPost;
+    oldSnippet.recommended = newSnippet.recommended;
+    console.log("Update Made")
+};
 
 function filterSnippetTags(database, keyword) {
     const results = [];
@@ -66,6 +57,7 @@ function filterSnippetTags(database, keyword) {
         }
     });
     return results;
+
 }
 
 const searchSnippetForTags = (query) => {
@@ -80,7 +72,9 @@ const searchSnippetForTags = (query) => {
             }
         })
     }
+    console.log("Tags Filtered")
     return uResults;
+
 }
 
 module.exports = {
