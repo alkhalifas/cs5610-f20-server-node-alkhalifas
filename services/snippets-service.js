@@ -23,13 +23,14 @@ const createSnippet = (cid) => {
         creatorId: cid,
         dateCreated : new Date().toLocaleString(),
         lastModified: new Date().toLocaleString(),
-        title : "New Title",
-        description : "New Description",
-        codeText : "Enter Code Here",
-        tags : [],
-        shareableURL: "",
-        publicPost: false,
-        recommended: false};
+        // title : "New Title",
+        // description : "New Description",
+        // codeText : "Enter Code Here",
+        // tags : [],
+        // shareableURL: "",
+        // publicPost: false,
+        // recommended: false
+    };
     snippets.push(newSnippet);
     console.log("Snippet Created")
     return newSnippet
