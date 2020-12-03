@@ -25,8 +25,16 @@ module.exports = (app) => {
     const deleteSnippetById = (req, res) =>
         res.send(snippetsService.deleteSnippetById(req.params['sid']));
 
-    const createSnippet = (req, res) =>
-        res.send(snippetsService.createSnippet(req.params['creatorId']));
+    // const createSnippet = (req, res) =>
+    //     res.send(snippetsService.createSnippet(req.params['creatorId']));
+
+    const createSnippet = (req, res) => {
+        snippetsService.createSnippet(req.body, console.log("Controller: ", req.body))
+        res.sendStatus(200)
+    }
+        //     .then(actualSnippet => res.send(actualSnippet))
+        // res.send( console.log("Controller: ", req.body), snippetsService.createSnippet(req.body));
+        //    res.status( console.log("Controller: ", req.body)).send(snippetsService.createSnippet(req.body));
 
     const searchSnippetForTags = (req, res) => {
         res.send(snippetsService.searchSnippetForTags(req.params['query']))

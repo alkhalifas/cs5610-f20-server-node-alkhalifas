@@ -17,24 +17,53 @@ const deleteSnippetById = (sid) =>
     snippets = snippets.filter(snippet => snippet.id !== sid);
 
 const createSnippet = (cid) => {
-    const newSnippet = {
-        id: Math.floor(100000000000000000 + Math.random() * 900000000000000000) + "",
-        // id: Math.random().toString(36).substr(2, 25),
-        creatorId: cid,
-        dateCreated : new Date().toLocaleString(),
-        lastModified: new Date().toLocaleString(),
-        // title : "New Title",
-        // description : "New Description",
-        // codeText : "Enter Code Here",
-        // tags : [],
-        // shareableURL: "",
-        // publicPost: false,
-        // recommended: false
-    };
-    snippets.push(newSnippet);
-    console.log("Snippet Created")
-    return newSnippet
+    // const newSnippet = {
+    //     id: Math.floor(100000000000000000 + Math.random() * 900000000000000000) + "",
+    //     // id: Math.random().toString(36).substr(2, 25),
+    //     creatorId: cid,
+    //     dateCreated : new Date().toLocaleString(),
+    //     lastModified: new Date().toLocaleString(),
+    //     // title : "New Title",
+    //     // description : "New Description",
+    //     // codeText : "Enter Code Here",
+    //     // tags : [],
+    //     // shareableURL: "",
+    //     // publicPost: false,
+    //     // recommended: false
+    // };
+    cid.id = Math.floor(100000000000000000 + Math.random() * 900000000000000000) + "";
+    cid.dateCreated = new Date().toLocaleString()
+    cid.lastModified = new Date().toLocaleString()
+
+    snippets.push(cid);
+    console.log("Snippet Created", cid)
+    return cid
 };
+
+// const createSnippet = (newSnippet) => {
+//
+//     // const updatedSnippet = {
+//     //     id: Math.floor(100000000000000000 + Math.random() * 900000000000000000) + "",
+//     //     // id: Math.random().toString(36).substr(2, 25),
+//     //     creatorId: cid,
+//     //     dateCreated : new Date().toLocaleString(),
+//     //     lastModified: new Date().toLocaleString(),
+//     //     // title : "New Title",
+//     //     // description : "New Description",
+//     //     // codeText : "Enter Code Here",
+//     //     // tags : [],
+//     //     // shareableURL: "",
+//     //     // publicPost: false,
+//     //     // recommended: false
+//     // }
+//     newSnippet.id =  Math.floor(100000000000000000 + Math.random() * 900000000000000000) + "";
+//     newSnippet.dateCreated = new Date().toLocaleString();
+//     newSnippet.lastModified = new Date().toLocaleString();
+//     console.log("Service: ", newSnippet)
+// }
+
+
+
 
 const updateSnippet = (sid, newSnippet) => {
     oldSnippet = snippets.find(snippet => snippet.id === sid);
