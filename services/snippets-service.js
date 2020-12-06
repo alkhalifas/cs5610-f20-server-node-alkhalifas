@@ -31,6 +31,7 @@ const createSnippet = (cid) => {
     //     // publicPost: false,
     //     // recommended: false
     // };
+
     cid.id = Math.floor(100000000000000000 + Math.random() * 900000000000000000) + "";
     cid.dateCreated = new Date().toLocaleString()
     cid.lastModified = new Date().toLocaleString()
@@ -78,6 +79,12 @@ const updateSnippet = (sid, newSnippet) => {
     oldSnippet.recommended = newSnippet.recommended;
     console.log("Update Made")
 };
+
+// const updateSnippet2 = (sid, newSnippet) => {
+//     oldSnippet = snippets.find(snippet => snippet.id === sid);
+//     newSnippet.lastModified = new Date().toLocaleString();
+//     oldSnippet = newSnippet
+// }
 
 function filterSnippetTags(database, keyword) {
     const results = [];

@@ -29,9 +29,8 @@ module.exports = (app) => {
     //     res.send(snippetsService.createSnippet(req.params['creatorId']));
 
     const createSnippet = (req, res) => {
-        snippetsService.createSnippet(req.body, console.log("Controller: ", req.body))
-        res.sendStatus(200)
-    }
+        res.send(snippetsService.createSnippet(req.body, console.log("Controller: ", req.body)))
+    };
         //     .then(actualSnippet => res.send(actualSnippet))
         // res.send( console.log("Controller: ", req.body), snippetsService.createSnippet(req.body));
         //    res.status( console.log("Controller: ", req.body)).send(snippetsService.createSnippet(req.body));
@@ -51,6 +50,6 @@ module.exports = (app) => {
     app.get("/api/snippets/id/:sid/tags", findSnippetsTags);
     app.get("/api/search/snippets/:query", searchSnippetForTags);
     app.delete("/api/snippets/:sid", deleteSnippetById);
-    app.post("/api/snippets/:creatorId", createSnippet);
+    app.post("/api/snippets/", createSnippet);
     app.put("/api/snippets/:sid", updateSnippet);
 };
