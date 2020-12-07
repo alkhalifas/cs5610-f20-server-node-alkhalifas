@@ -33,4 +33,11 @@ module.exports = function (app) {
         snippetService.updateSnippet(req.params['sid'], req.body)
             .then(status => res.send(status))
     )
+
+    const documentation = (req, res) => {
+        res.sendFile('documentation.html', {root: __dirname })
+    };
+
+    app.get("/", documentation);
+
 };
