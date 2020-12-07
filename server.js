@@ -1,10 +1,10 @@
-const express = require("express")
-const app = express()
+const express = require("express");
+const app = express();
+const cors = require('cors');
 
-
-const bodyParser = require('body-parser')
-app.use(bodyParser.urlencoded({ extended: false }))
-app.use(bodyParser.json())
+const bodyParser = require('body-parser');
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
 
 // app.use(function (req, res, next) {
 //     res.header('Access-Control-Allow-Origin', '*');
@@ -15,36 +15,24 @@ app.use(bodyParser.json())
 //     next();
 // });
 
+app.use(
+    cors({
+             credentials: true,
+             origin: true
+         })
+);
+app.options('*', cors());
 
-app.use(function (req, res, next) {
-    res.header('Access-Control-Allow-Origin', '*');
-    res.header('Access-Control-Allow-Headers',
-               'Content-Type, X-Requested-With, Origin');
-    res.header('Access-Control-Allow-Methods',
-               'GET, POST, PUT, PATCH, DELETE, OPTIONS');
-    next();
-});
+const mongoose = require('mongoose');
+mongoose.connect('mongodb+srv://mrspacman:vintagegames1993@snippetcluster0.ojztr.mongodb.net/snippets?retryWrites=true&w=majority',
+                 {useNewUrlParser: true,
+                     useUnifiedTopology: true});
 
-
-
-// const mongoose = require('mongoose');
-// mongoose.connect('mongodb://localhost/whiteboard', {useNewUrlParser: true});
-//
-// const quizSchema = mongoose.Schema({
-//                                        name: String,
-//                                        avg: Number
-//                                    }, {collection: "quizzes"})
-//
-// const quizModel = mongoose.model("QuizModel", quizSchema)
-
-// quizModel.find()
-//     .then(quizzes => console.log(quizzes))
-
-
-require("./controllers/snippets-controller")(app)
+// require("./controllers/snippets-controller")(app);
+require("./controllers/snippet.controller.server")(app);
 
 // app.listen(3000)
 
-app.listen(process.env.PORT || 3003, () =>
-    console.log("Server is running...")
+app.listen(process.env.PORT || 3000, () =>
+    console.log("Server is running @3000 ...")
 );
