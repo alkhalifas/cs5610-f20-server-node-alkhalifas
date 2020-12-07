@@ -7,15 +7,15 @@ const findSnippetByGistId = (gid) => snippetsModel.find({'gistId' : gid});
 
 const queryToDictList = (tagSearch) => {
     let tagsList = tagSearch.split("+");
-    console.log("tagsList:", tagsList);
+    // console.log("tagsList:", tagsList);
 
     const outList = [];
-    tagsList.toLowerCase().forEach((tag) => {
+    tagsList.forEach((tag) => {
 
-        let currentTag = {tags: tag};
+        let currentTag = {tags: tag.toLowerCase()};
         outList.push(currentTag)
     });
-    console.log("outList: ", outList);
+    // console.log("outList: ", outList);
     return outList;
 };
 
