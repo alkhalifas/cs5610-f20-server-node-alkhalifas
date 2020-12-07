@@ -28,10 +28,7 @@ mongoose.connect('mongodb+srv://mrspacman:vintagegames1993@snippetcluster0.ojztr
                  {useNewUrlParser: true,
                      useUnifiedTopology: true});
 
-// require("./controllers/snippets-controller")(app);
 require("./controllers/snippet.controller.server")(app);
-
-// app.listen(3000)
 
 app.listen(process.env.PORT || 3000, () =>
     console.log("Server is running @3000 ...")
