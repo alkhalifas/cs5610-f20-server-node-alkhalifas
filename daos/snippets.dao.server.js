@@ -2,20 +2,17 @@ const snippetsModel = require('../models/snippet.model.server');
 
 const findAllSnippets = () => snippetsModel.find();
 const findAllPublicSnippets = () => snippetsModel.find({'publicPost' : true});
+const findAllStarredSnippets = () => snippetsModel.find({'recommended' : true});
 const findSnippetById = (sid) => snippetsModel.findById(sid);
 const findSnippetByGistId = (gid) => snippetsModel.find({'gistId' : gid});
 
 const queryToDictList = (tagSearch) => {
     let tagsList = tagSearch.split("+");
-    // console.log("tagsList:", tagsList);
-
     const outList = [];
     tagsList.forEach((tag) => {
-
         let currentTag = {tags: tag.toLowerCase()};
         outList.push(currentTag)
     });
-    // console.log("outList: ", outList);
     return outList;
 };
 
@@ -53,4 +50,5 @@ module.exports = {
     findAllPublicSnippets,
     deleteSnippetById,
     createSnippet,
-    updateSnippet};
+    updateSnippet,
+    findAllStarredSnippets};

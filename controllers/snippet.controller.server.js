@@ -7,7 +7,11 @@ module.exports = function (app) {
 
     app.get('/api/snippets/public', (req, res) =>
         snippetService.findAllPublicSnippets()
-            .then(allSnippets => res.json(allSnippets)));
+            .then(publicSnippets => res.json(publicSnippets)));
+
+    app.get('/api/snippets/starred', (req, res) =>
+        snippetService.findAllStarredSnippets()
+            .then(starredSnippets => res.json(starredSnippets)));
 
     app.get('/api/snippets/id/:sid', (req, res) =>
         snippetService.findSnippetById(req.params['sid'])

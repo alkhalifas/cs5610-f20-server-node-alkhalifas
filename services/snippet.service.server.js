@@ -1,6 +1,7 @@
 const snippetsDao = require('../daos/snippets.dao.server');
 const findAllSnippets = () => snippetsDao.findAllSnippets();
 const findAllPublicSnippets = () => snippetsDao.findAllPublicSnippets();
+const findAllStarredSnippets = () => snippetsDao.findAllStarredSnippets();
 const findSnippetById = (sid) => snippetsDao.findSnippetById(sid);
 const findSnippetByGistId = (gid) => snippetsDao.findSnippetByGistId(gid);
 const findSnippetByTag = (tagSearch) => snippetsDao.findSnippetByTag(tagSearch);
@@ -16,4 +17,5 @@ module.exports = {
     findAllPublicSnippets,
     deleteSnippetById,
     createSnippet,
-    updateSnippet}
+    updateSnippet,
+    findAllStarredSnippets}
