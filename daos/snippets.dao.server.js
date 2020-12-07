@@ -25,8 +25,25 @@ const findSnippetByTag = (tagSearch) => snippetsModel.find({ $or:
                                                                     queryToDictList(tagSearch)
                                                                 });
 
+const deleteSnippetById = (sid) => snippetsModel.deleteOne({_id: sid});
 
-const deleteSnippetById = (sid) => snippetsModel.deleteOne({_id: sid})
+const newSnippetDateHandler = (newSnippet) => {
+    newSnippet.dateCreated = new Date().toLocaleString();
+    newSnippet.lastModified = newSnippet.dateCreated;
+    return newSnippet
+}
+
+const createSnippet = (newSnippet) => snippetsModel.create(newSnippetDateHandler(newSnippet));
+
+const updateTimeChanger = (updatedSnippet) => {
+    updatedSnippet.lastModified = new Date().toLocaleString();
+    return updatedSnippet
+}
+
+const updateSnippet = (sid, updatedSnippet) => snippetsModel.updateOne(
+                                                                   {_id: sid},
+                                                                   {$set: updateTimeChanger(updatedSnippet)}
+                                                                    );
 
 //########################################## Attempt 1 ##########################################
 
@@ -82,4 +99,6 @@ module.exports = {
     findSnippetByGistId,
     findSnippetByTag,
     findAllPublicSnippets,
-    deleteSnippetById};
+    deleteSnippetById,
+    createSnippet,
+    updateSnippet};
