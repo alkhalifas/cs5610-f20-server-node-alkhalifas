@@ -34,7 +34,7 @@ module.exports = (app) => {
     //     res.send(snippetsService.deleteSnippetById(req.params['sid']));
     //
     // // const createSnippet = (req, res) =>
-    // //     res.send(snippetsService.createSnippet(req.params['creatorId']));
+    // //     res.send(snippetsService.createSnippet(req.params['creator']));
     //
     // const createSnippet = (req, res) => {
     //     res.send(snippetsService.createSnippet(req.body, console.log("Controller: ", req.body)))

@@ -24,7 +24,7 @@ findSnippetById = (sid) => snippetsDao.findSnippetById(sid);
 //     // const newSnippet = {
 //     //     id: Math.floor(100000000000000000 + Math.random() * 900000000000000000) + "",
 //     //     // id: Math.random().toString(36).substr(2, 25),
-//     //     creatorId: cid,
+//     //     creator: cid,
 //     //     dateCreated : new Date().toLocaleString(),
 //     //     lastModified: new Date().toLocaleString(),
 //     //     // title : "New Title",
@@ -50,7 +50,7 @@ findSnippetById = (sid) => snippetsDao.findSnippetById(sid);
 // //     // const updatedSnippet = {
 // //     //     id: Math.floor(100000000000000000 + Math.random() * 900000000000000000) + "",
 // //     //     // id: Math.random().toString(36).substr(2, 25),
-// //     //     creatorId: cid,
+// //     //     creator: cid,
 // //     //     dateCreated : new Date().toLocaleString(),
 // //     //     lastModified: new Date().toLocaleString(),
 // //     //     // title : "New Title",

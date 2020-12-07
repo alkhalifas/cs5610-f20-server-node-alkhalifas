@@ -2,7 +2,7 @@
     {
         "id" : "208661188510820801",
         "gistId" : "123456",
-        "creatorId" : "alkhalifas",
+        "creator" : "alkhalifas",
         "dateCreated" : "11/21/2020, 6:47:53 PM",
         "lastModified": "11/21/2020, 6:47:53 PM",
         "title" : "Importing Pandas and Numpy using Python",
@@ -16,7 +16,7 @@
     {
         "id" : "208661188510820811",
         "gistId" : "234567",
-        "creatorId" : "wcohen",
+        "creator" : "wcohen",
         "dateCreated" : "11/21/2020, 6:55:53 PM",
         "lastModified": "11/21/2020, 6:55:53 PM",
         "title" : "Creating a Dataframe using Python",
@@ -30,7 +30,7 @@
     {
         "id" : "208661181210820321",
         "gistId" : "345678",
-        "creatorId" : "nshepard",
+        "creator" : "nshepard",
         "dateCreated" : "10/21/2020, 6:22:53 PM",
         "lastModified": "11/21/2020, 6:55:53 PM",
         "title" : "Getting Date and time using Javascript",
@@ -44,7 +44,7 @@
         {
             "id" : "208111181210820898",
             "gistId" : "456789",
-            "creatorId" : "nshepard",
+            "creator" : "nshepard",
             "dateCreated" : "11/21/2020, 7:22:53 PM",
             "lastModified": "11/21/2020, 8:55:53 PM",
             "title" : "Creating a new variable in JS",

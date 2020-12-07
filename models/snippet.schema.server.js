@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 const snippetSchema = mongoose.Schema({
                                           // id: String,
                                           gistId: String,
-                                          creatorId: String,
+                                          creator: String,
                                           dateCreated: String,
                                           lastModified: String,
                                           title: String,

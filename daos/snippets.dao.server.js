@@ -28,7 +28,7 @@ const deleteSnippetById = (sid) => snippetsModel.deleteOne({_id: sid});
 const newSnippetHandler = (newSnippet) => {
     newSnippet.dateCreated = new Date().toLocaleString();
     newSnippet.lastModified = newSnippet.dateCreated;
-    newSnippet.tags = newSnippet.tags.toLowerCase();
+    newSnippet.tags = newSnippet.tags.map(v => v.toLowerCase());
 
     return newSnippet
 }
