@@ -10,7 +10,7 @@ const queryToDictList = (tagSearch) => {
     console.log("tagsList:", tagsList);
 
     const outList = [];
-    tagsList.forEach((tag) => {
+    tagsList.toLowerCase().forEach((tag) => {
 
         let currentTag = {tags: tag};
         outList.push(currentTag)
@@ -25,13 +25,15 @@ const findSnippetByTag = (tagSearch) => snippetsModel.find({ $or:
 
 const deleteSnippetById = (sid) => snippetsModel.deleteOne({_id: sid});
 
-const newSnippetDateHandler = (newSnippet) => {
+const newSnippetHandler = (newSnippet) => {
     newSnippet.dateCreated = new Date().toLocaleString();
     newSnippet.lastModified = newSnippet.dateCreated;
+    newSnippet.tags = newSnippet.tags.toLowerCase();
+
     return newSnippet
 }
 
-const createSnippet = (newSnippet) => snippetsModel.create(newSnippetDateHandler(newSnippet));
+const createSnippet = (newSnippet) => snippetsModel.create(newSnippetHandler(newSnippet));
 
 const updateTimeChanger = (updatedSnippet) => {
     updatedSnippet.lastModified = new Date().toLocaleString();
