@@ -5,6 +5,13 @@ const findAllPublicSnippets = () => snippetsModel.find({'publicPost' : true});
 const findAllStarredSnippets = () => snippetsModel.find({'recommended' : true});
 const findSnippetById = (sid) => snippetsModel.findById(sid);
 const findSnippetByGistId = (gid) => snippetsModel.find({'gistId' : gid});
+const findSnippetByCreator = (cid) => snippetsModel.find({'creator' : cid});
+
+const findSnippetByCreatorAndPublic = (cid) => snippetsModel.find( {$or :
+                                                                    [
+                                                                        {'creator' : cid},
+                                                                        {'publicPost' : true}
+                                                                    ]});
 
 const queryToDictList = (tagSearch) => {
     let tagsList = tagSearch.split("+");
@@ -51,4 +58,6 @@ module.exports = {
     deleteSnippetById,
     createSnippet,
     updateSnippet,
-    findAllStarredSnippets};
+    findAllStarredSnippets,
+    findSnippetByCreator,
+    findSnippetByCreatorAndPublic};

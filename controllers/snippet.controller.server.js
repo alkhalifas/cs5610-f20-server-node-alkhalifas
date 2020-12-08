@@ -21,6 +21,14 @@ module.exports = function (app) {
         snippetService.findSnippetByGistId(req.params['gid'])
             .then(snippet => res.json(snippet)));
 
+    app.get('/api/:cid/snippets', (req, res) =>
+        snippetService.findSnippetByCreator(req.params['cid'])
+            .then(snippet => res.json(snippet)));
+
+    app.get('/api/:cid/snippets/public', (req, res) =>
+        snippetService.findSnippetByCreatorAndPublic(req.params['cid'])
+            .then(snippet => res.json(snippet)));
+
     app.get('/api/snippets/tags/:tagSearch', (req, res) =>
         snippetService.findSnippetByTag(req.params['tagSearch'])
             .then(snippet => res.json(snippet)));
