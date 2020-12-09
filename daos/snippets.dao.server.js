@@ -36,14 +36,14 @@ const newSnippetHandler = (newSnippet) => {
     newSnippet.tags = newSnippet.tags.map(v => v.toLowerCase());
 
     return newSnippet
-}
+};
 
 const createSnippet = (newSnippet) => snippetsModel.create(newSnippetHandler(newSnippet));
 
 const updateTimeChanger = (updatedSnippet) => {
     updatedSnippet.lastModified = new Date().toLocaleString();
     return updatedSnippet
-}
+};
 
 const updateSnippet = (sid, updatedSnippet) => snippetsModel.updateOne(
                                                                    {_id: sid},
