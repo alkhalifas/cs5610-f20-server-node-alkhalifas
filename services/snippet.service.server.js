@@ -5,6 +5,7 @@ const findAllStarredSnippets = () => snippetsDao.findAllStarredSnippets();
 const findSnippetById = (sid) => snippetsDao.findSnippetById(sid);
 const findSnippetByGistId = (gid) => snippetsDao.findSnippetByGistId(gid);
 const findSnippetByCreator = (cid) => snippetsDao.findSnippetByCreator(cid);
+const findLikesForUser = (uid) => snippetsDao.findLikesForUser(uid);
 const findSnippetByCreatorAndPublic = (cid) => snippetsDao.findSnippetByCreatorAndPublic(cid);
 const findSnippetByTag = (tagSearch) => snippetsDao.findSnippetByTag(tagSearch);
 const deleteSnippetById = (sid) => snippetsDao.deleteSnippetById(sid);
@@ -22,4 +23,5 @@ module.exports = {
     updateSnippet,
     findAllStarredSnippets,
     findSnippetByCreator,
-    findSnippetByCreatorAndPublic}
+    findSnippetByCreatorAndPublic,
+    findLikesForUser}

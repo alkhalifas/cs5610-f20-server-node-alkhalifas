@@ -25,6 +25,10 @@ module.exports = function (app) {
         snippetService.findSnippetByCreator(req.params['cid'])
             .then(snippet => res.json(snippet)));
 
+    app.get('/api/:uid/likes', (req, res) =>
+        snippetService.findLikesForUser(req.params['uid'])
+            .then(snippet => res.json(snippet)));
+
     app.get('/api/:cid/snippets/public', (req, res) =>
         snippetService.findSnippetByCreatorAndPublic(req.params['cid'])
             .then(snippet => res.json(snippet)));

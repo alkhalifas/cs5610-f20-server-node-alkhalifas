@@ -6,6 +6,7 @@ const findAllStarredSnippets = () => snippetsModel.find({'recommended' : true});
 const findSnippetById = (sid) => snippetsModel.findById(sid);
 const findSnippetByGistId = (gid) => snippetsModel.find({'gistId' : gid});
 const findSnippetByCreator = (cid) => snippetsModel.find({'creator' : cid});
+const findLikesForUser = (uid) => snippetsModel.find({"likes" : uid});
 
 const findSnippetByCreatorAndPublic = (cid) => snippetsModel.find( {$or :
                                                                     [
@@ -60,4 +61,5 @@ module.exports = {
     updateSnippet,
     findAllStarredSnippets,
     findSnippetByCreator,
-    findSnippetByCreatorAndPublic};
+    findSnippetByCreatorAndPublic,
+    findLikesForUser};

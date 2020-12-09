@@ -9,6 +9,7 @@ const snippetSchema = mongoose.Schema({
                                           description: String,
                                           codeText: String,
                                           tags: Array,
+                                          likes: Array,
                                           shareableURL: String,
                                           publicPost: Boolean,
                                           recommended: Boolean,
