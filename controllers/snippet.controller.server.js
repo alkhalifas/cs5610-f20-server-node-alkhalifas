@@ -47,12 +47,10 @@ module.exports = function (app) {
 
     app.put('/api/snippets/id/:sid', (req, res) =>
         snippetService.updateSnippet(req.params['sid'], req.body)
-            .then(status => res.send(status))
-    )
+            .then(status => res.send(status)));
 
     const documentation = (req, res) => {
-        res.sendFile('documentation.html', {root: __dirname })
-    };
+        res.sendFile('documentation.html', {root: __dirname })};
 
     app.get("/", documentation);
 
