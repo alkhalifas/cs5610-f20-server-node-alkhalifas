@@ -1,7 +1,7 @@
 const snippetsModel = require('../models/snippet.model.server');
 
 const findAllSnippets = () => snippetsModel.find();
-const findAllPublicSnippets = () => snippetsModel.find({'publicPost' : true});
+const findAllPublicSnippets = () => snippetsModel.find({'publicPost' : true}).sort({"_id": "descending"});
 const findAllStarredSnippets = () => snippetsModel.find({'recommended' : true});
 const findSnippetById = (sid) => snippetsModel.findById(sid);
 const findSnippetByGistId = (gid) => snippetsModel.find({'gistId' : gid});
@@ -12,7 +12,7 @@ const findSnippetByCreatorAndPublic = (cid) => snippetsModel.find( {$or :
                                                                     [
                                                                         {'creator' : cid},
                                                                         {'publicPost' : true}
-                                                                    ]});
+                                                                    ]}).sort({"_id": "descending"})
 
 const queryToDictList = (tagSearch) => {
     let tagsList = tagSearch.split("+");
