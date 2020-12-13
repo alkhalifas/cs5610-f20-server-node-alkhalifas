@@ -23,12 +23,21 @@ app.use(
 );
 app.options('*', cors());
 
+const session = require('express-session');
+app.use(session({
+                    resave: false,
+                    saveUninitialized: true,
+                    secret: 'any string'
+                }));
+
+
 const mongoose = require('mongoose');
 mongoose.connect('mongodb+srv://mrspacman:vintagegames1993@snippetcluster0.ojztr.mongodb.net/snippets?retryWrites=true&w=majority',
                  {useNewUrlParser: true,
                      useUnifiedTopology: true});
 
 require("./controllers/snippet.controller.server")(app);
+require("./controllers/express-session")(app);
 
 app.listen(process.env.PORT || 3000, () =>
     console.log("Server is running @3000 ...")
