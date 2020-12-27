@@ -1,0 +1,58 @@
+[
+    {
+        "id" : "208661188510820801",
+        "gistId" : "123456",
+        "creator" : "alkhalifas",
+        "dateCreated" : "11/21/2020, 6:47:53 PM",
+        "lastModified": "11/21/2020, 6:47:53 PM",
+        "title" : "Importing Pandas and Numpy using Python",
+        "description" : "This snippet explains the process of importing pandas and numpy.",
+        "codeText" : "import pandas as pd import numpy as np",
+        "tags" : ["Python", "Pandas", "Numpy"],
+        "shareableURL": "some URL",
+        "publicPost": false,
+        "recommended": false
+    },
+    {
+        "id" : "208661188510820811",
+        "gistId" : "234567",
+        "creator" : "wcohen",
+        "dateCreated" : "11/21/2020, 6:55:53 PM",
+        "lastModified": "11/21/2020, 6:55:53 PM",
+        "title" : "Creating a Dataframe using Python",
+        "description" : "This snippet explains how to create a pandas dataframe using Python.",
+        "codeText" : "df = pd.DataFrame()",
+        "tags" : ["Pandas", "DataFrame", "Python"],
+        "shareableURL": "some URL",
+        "publicPost": true,
+        "recommended": true
+    },
+    {
+        "id" : "208661181210820321",
+        "gistId" : "345678",
+        "creator" : "nshepard",
+        "dateCreated" : "10/21/2020, 6:22:53 PM",
+        "lastModified": "11/21/2020, 6:55:53 PM",
+        "title" : "Getting Date and time using Javascript",
+        "description" : "This is how you can generate the current time and time as a string",
+        "codeText" : "const variable = new Date().toLocaleString()",
+        "tags" : ["Javascript", "JS", "Date", "Datetime"],
+        "shareableURL": "some URL",
+        "publicPost": true,
+        "recommended": false
+    },
+        {
+            "id" : "208111181210820898",
+            "gistId" : "456789",
+            "creator" : "nshepard",
+            "dateCreated" : "11/21/2020, 7:22:53 PM",
+            "lastModified": "11/21/2020, 8:55:53 PM",
+            "title" : "Creating a new variable in JS",
+            "description" : "This is how you can create a new variable in JS",
+            "codeText" : "const variable = something",
+            "tags" : ["Javascript", "Variable"],
+            "shareableURL": "some URL",
+            "publicPost": true,
+            "recommended": false
+        }
+]

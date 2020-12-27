@@ -53,7 +53,7 @@ const snippets = [
     {
         id : "1",
         gistId : "123",
-        creatorId : "alkhalifas",
+        creator : "alkhalifas",
         dateCreated : "10/22/2020",
         lastModified: "10/22/2020",
         title : "Some title",
@@ -67,7 +67,7 @@ const snippets = [
     {
         id : "2",
         gistId : "234",
-        creatorId : "alkhalifas",
+        creator : "alkhalifas",
         dateCreated : "10/22/2020",
         lastModified: "10/22/2020",
         title : "Some title",
@@ -81,7 +81,7 @@ const snippets = [
     {
         id : "3",
         gistId : "345",
-        creatorId : "alkhalifas",
+        creator : "alkhalifas",
         dateCreated : "10/22/2020",
         lastModified: "10/22/2020",
         title : "Some title",
